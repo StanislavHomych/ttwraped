@@ -18,7 +18,6 @@ body {
   color: #fff;
 }
 
-/* Animated Mesh Background */
 body::before {
   content: '';
   position: fixed;
@@ -48,7 +47,6 @@ body::before {
   }
 }
 
-/* Floating Orbs */
 body::after {
   content: '';
   position: fixed;
@@ -79,7 +77,6 @@ body::after {
   position: relative;
 }
 
-/* Hero Section */
 .hero-section {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -97,7 +94,6 @@ body::after {
   }
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -143,7 +139,6 @@ body::after {
   margin-left: 0.5rem;
 }
 
-/* Hero Tagline */
 .hero-tagline {
   font-size: 1.5rem;
   font-weight: 600;
@@ -152,7 +147,6 @@ body::after {
   letter-spacing: -0.5px;
 }
 
-/* Hero Features */
 .hero-features {
   display: flex;
   justify-content: center;
@@ -183,7 +177,6 @@ body::after {
   font-size: 1.1rem;
 }
 
-/* Hero Description */
 .hero-description {
   max-width: 600px;
   margin: 0 auto;
@@ -192,7 +185,6 @@ body::after {
   line-height: 1.6;
 }
 
-/* Responsive Hero */
 @media (max-width: 600px) {
   .logo {
     flex-direction: column;
@@ -226,7 +218,6 @@ body::after {
   }
 }
 
-/* How to get data link */
 .how-to-link {
   display: block;
   text-align: center;
@@ -246,7 +237,6 @@ body::after {
   transform: translateY(-2px);
 }
 
-/* Instruction Card */
 .instruction-card {
   background: linear-gradient(
     135deg,
@@ -255,7 +245,6 @@ body::after {
   ) !important;
 }
 
-/* Notice Box */
 .instruction-notice {
   display: flex;
   gap: 1rem;
@@ -282,7 +271,6 @@ body::after {
   color: #fe2c55;
 }
 
-/* Steps Container */
 .steps-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -296,7 +284,6 @@ body::after {
   }
 }
 
-/* Step Card */
 .step {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -353,7 +340,6 @@ body::after {
   transform: scale(1.02);
 }
 
-/* Fallback when no image */
 .step-image img[src=""],
 .step-image img:not([src]) {
   display: none;
@@ -394,7 +380,6 @@ body::after {
   color: #25f4ee;
 }
 
-/* Instruction Footer */
 .instruction-footer {
   display: flex;
   flex-direction: column;
@@ -424,7 +409,6 @@ body::after {
   justify-content: center;
 }
 
-/* Demo Video Section */
 .demo-card {
   background: linear-gradient(
     135deg,
@@ -494,7 +478,6 @@ body::after {
   text-shadow: 0 0 10px rgba(254, 44, 85, 0.5);
 }
 
-/* More Stats Preview */
 .more-stats {
   margin: 2rem 0;
   padding: 1.5rem;
@@ -534,7 +517,6 @@ body::after {
   border-color: rgba(37, 244, 238, 0.3);
 }
 
-/* Liquid Glass Card */
 .card {
   background: linear-gradient(
     135deg,
@@ -555,13 +537,11 @@ body::after {
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
     inset 0 -1px 0 rgba(255, 255, 255, 0.05);
   
-  /* Animation */
   opacity: 0;
   transform: translateY(60px) scale(0.95);
   animation: cardSlideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Top border glow */
 .card::before {
   content: '';
   position: absolute;
@@ -572,7 +552,6 @@ body::after {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
 }
 
-/* Border Glow on Hover */
 .card::after {
   content: '';
   position: absolute;
@@ -592,7 +571,6 @@ body::after {
   opacity: 0.3;
 }
 
-/* Staggered Card Animation */
 .card:nth-child(1) { animation-delay: 0s; }
 .card:nth-child(2) { animation-delay: 0.1s; }
 .card:nth-child(3) { animation-delay: 0.2s; }
@@ -628,7 +606,6 @@ body::after {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Profile Card - Gradient Glass */
 .profile-card {
   background: linear-gradient(
     135deg,
@@ -646,7 +623,6 @@ body::after {
   background: linear-gradient(45deg, #fe2c55, #ff6b6b, #fe2c55);
 }
 
-/* Highlight Card - Cyan Glass */
 .highlight-card {
   background: linear-gradient(
     135deg,
@@ -667,7 +643,6 @@ body::after {
   text-shadow: 0 0 20px rgba(37, 244, 238, 0.5);
 }
 
-/* Title with Animated Gradient */
 h1 {
   font-family: 'Sora', sans-serif;
   font-size: 4rem;
@@ -696,7 +671,6 @@ h1 {
   50% { background-position: 100% 50%; }
 }
 
-/* Section Title */
 .section-title {
   color: #fff;
   margin-bottom: 1.5rem;
@@ -708,7 +682,6 @@ h1 {
   letter-spacing: -0.5px;
 }
 
-/* Profile Header */
 .profile-header {
   display: flex;
   align-items: center;
@@ -755,7 +728,6 @@ h1 {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Upload Area - Liquid Glass */
 .upload-area {
   border: 2px dashed rgba(254, 44, 85, 0.4);
   border-radius: 24px;
@@ -816,7 +788,6 @@ input[type="file"] {
   display: none;
 }
 
-/* Upload Button - Neon */
 .upload-button {
   background: linear-gradient(135deg, #fe2c55 0%, #ec4899 100%);
   color: white;
@@ -867,7 +838,6 @@ input[type="file"] {
   box-shadow: none;
 }
 
-/* Loading */
 .loading {
   text-align: center;
   padding: 2rem;
@@ -903,7 +873,6 @@ input[type="file"] {
   backdrop-filter: blur(10px);
 }
 
-/* Stats Grid */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -965,14 +934,12 @@ input[type="file"] {
   letter-spacing: 0.5px;
 }
 
-/* User Info Grid */
 .user-info {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1rem;
 }
 
-/* Info Item - Mini Glass Card */
 .info-item {
   background: linear-gradient(
     135deg,
@@ -987,7 +954,6 @@ input[type="file"] {
   overflow: hidden;
   backdrop-filter: blur(10px);
   
-  /* Staggered animation */
   opacity: 0;
   transform: translateY(20px);
   animation: itemFadeIn 0.5s ease forwards;
@@ -1078,7 +1044,6 @@ input[type="file"] {
   letter-spacing: 0;
 }
 
-/* Active Month Box - FIXED */
 .active-month-box {
   margin-top: 1rem;
   padding: 1rem 1.5rem;
@@ -1092,7 +1057,6 @@ input[type="file"] {
   color: #25f4ee;
 }
 
-/* Interests & Collections */
 .interests,
 .collections {
   display: flex;
@@ -1138,7 +1102,6 @@ input[type="file"] {
   box-shadow: 0 5px 20px rgba(37, 244, 238, 0.3);
 }
 
-/* Search Terms */
 .search-terms {
   display: flex;
   flex-direction: column;
@@ -1156,7 +1119,6 @@ input[type="file"] {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(10px);
   
-  /* Animation */
   opacity: 0;
   transform: translateX(-20px);
   animation: searchSlide 0.4s ease forwards;
@@ -1214,7 +1176,6 @@ input[type="file"] {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Share Methods */
 .share-methods {
   display: flex;
   flex-wrap: wrap;
@@ -1256,7 +1217,6 @@ input[type="file"] {
   box-shadow: 0 2px 10px rgba(254, 44, 85, 0.3);
 }
 
-/* Top Chats */
 .top-chats {
   display: flex;
   flex-direction: column;
@@ -1292,7 +1252,6 @@ input[type="file"] {
   font-size: 0.85rem;
 }
 
-/* Devices Grid */
 .devices-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1328,7 +1287,6 @@ input[type="file"] {
   font-size: 0.85rem;
 }
 
-/* Comments */
 .comments-list {
   display: flex;
   flex-direction: column;
@@ -1363,7 +1321,6 @@ input[type="file"] {
   font-size: 0.8rem;
 }
 
-/* Followers List */
 .followers-list {
   display: flex;
   flex-wrap: wrap;
@@ -1388,12 +1345,10 @@ input[type="file"] {
   box-shadow: 0 5px 20px rgba(37, 244, 238, 0.3);
 }
 
-/* Animated Counter */
 .animated-number {
   display: inline-block;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .container {
     padding: 1rem;
@@ -1448,7 +1403,6 @@ input[type="file"] {
   }
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -1466,13 +1420,11 @@ input[type="file"] {
   background: linear-gradient(180deg, #ff6b6b 0%, #00d9ff 100%);
 }
 
-/* Selection */
 ::selection {
   background: rgba(254, 44, 85, 0.3);
   color: #fff;
 }
 
-/* Rank Card */
 .rank-card {
   background: linear-gradient(
     135deg,
@@ -1511,7 +1463,6 @@ input[type="file"] {
   to { transform: rotate(360deg); }
 }
 
-/* Slot Machine */
 .slot-machine {
   position: relative;
   z-index: 1;
@@ -1653,7 +1604,6 @@ input[type="file"] {
   margin-top: 0.5rem;
 }
 
-/* Responsive Slot Machine */
 @media (max-width: 600px) {
   .slot-window {
     min-width: auto;
@@ -1669,7 +1619,6 @@ input[type="file"] {
   }
 }
 
-/* Casino Stats */
 .stats-casino {
   background: linear-gradient(
     135deg,
@@ -1735,7 +1684,6 @@ input[type="file"] {
   50% { left: 150%; }
 }
 
-/* Slot Number Animation */
 .slot-number {
   display: inline-block;
   font-family: 'DM Sans', sans-serif;
@@ -1802,7 +1750,6 @@ input[type="file"] {
   }
 }
 
-/* Jackpot flash effect when done */
 .casino-stat:has(.slot-number.done) {
   animation: jackpotFlash 0.6s ease-out;
 }

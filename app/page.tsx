@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from 'react'
 import JSZip from 'jszip'
 
-// Casino Slot Number Component
 function SlotNumber({ value, delay = 0 }: { value: number; delay?: number }) {
   const [isSpinning, setIsSpinning] = useState(true)
   const [displayValue, setDisplayValue] = useState('0')
@@ -12,17 +11,14 @@ function SlotNumber({ value, delay = 0 }: { value: number; delay?: number }) {
   useEffect(() => {
     const finalValue = value.toLocaleString('en-US')
     
-    // Wait for delay
     const delayTimer = setTimeout(() => {
       setPhase('spinning')
       
-      // Fast random numbers phase
       let spinCount = 0
       const maxSpins = 15 + Math.floor(Math.random() * 10)
       
       const spinInterval = setInterval(() => {
         spinCount++
-        // Generate random number with similar digit count
         const digits = finalValue.replace(/,/g, '').length
         const randomNum = Math.floor(Math.random() * Math.pow(10, digits))
         setDisplayValue(randomNum.toLocaleString('en-US'))
@@ -31,7 +27,6 @@ function SlotNumber({ value, delay = 0 }: { value: number; delay?: number }) {
           clearInterval(spinInterval)
           setPhase('slowing')
           
-          // Slowing down phase
           let slowCount = 0
           const slowInterval = setInterval(() => {
             slowCount++
@@ -60,7 +55,6 @@ function SlotNumber({ value, delay = 0 }: { value: number; delay?: number }) {
   )
 }
 
-// Simple Animated Counter (for smaller numbers)
 function AnimatedNumber({ value, duration = 2000 }: { value: number; duration?: number }) {
   const [displayValue, setDisplayValue] = useState(0)
   const startTime = useRef<number | null>(null)
@@ -77,7 +71,6 @@ function AnimatedNumber({ value, duration = 2000 }: { value: number; duration?: 
       const elapsed = currentTime - startTime.current
       const progress = Math.min(elapsed / duration, 1)
       
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4)
       const current = Math.floor(easeOutQuart * value)
       
@@ -102,7 +95,6 @@ function AnimatedNumber({ value, duration = 2000 }: { value: number; duration?: 
   return <span className="animated-number">{displayValue.toLocaleString('en-US')}</span>
 }
 
-// Rank titles based on watch hours - meme edition
 const RANKS = [
   { minHours: 0, title: '🐣 NPC Energy', color: '#94a3b8' },
   { minHours: 10, title: '🗿 Average Enjoyer', color: '#78716c' },
@@ -132,7 +124,6 @@ function getRank(hours: number) {
   return rank
 }
 
-// Casino Slot Machine Component
 function SlotMachine({ hours }: { hours: number }) {
   const [isSpinning, setIsSpinning] = useState(true)
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -145,16 +136,13 @@ function SlotMachine({ hours }: { hours: number }) {
     setIsSpinning(true)
     spinCount.current = 0
     
-    // Fast spin through random ranks
     const spinInterval = setInterval(() => {
       spinCount.current++
       setCurrentIndex(Math.floor(Math.random() * RANKS.length))
       
-      // After ~2 seconds, start slowing down
       if (spinCount.current > 20) {
         clearInterval(spinInterval)
         
-        // Slow reveal
         let slowIndex = 0
         const slowInterval = setInterval(() => {
           slowIndex++
@@ -162,7 +150,6 @@ function SlotMachine({ hours }: { hours: number }) {
           
           if (slowIndex > 5) {
             clearInterval(slowInterval)
-            // Final reveal
             setTimeout(() => {
               setIsSpinning(false)
             }, 300)
@@ -206,7 +193,6 @@ function SlotMachine({ hours }: { hours: number }) {
 }
 
 interface UserData {
-  // Профіль
   username?: string
   displayName?: string
   email?: string
@@ -218,7 +204,6 @@ interface UserData {
   followingCount?: number
   likesReceived?: number
   
-  // Налаштування
   interests?: string
   appLanguage?: string
   privateAccount?: boolean
@@ -230,7 +215,6 @@ interface UserData {
   whoCanComment?: string
   filterComments?: boolean
   
-  // Статистика переглядів
   totalVideosWatched?: number
   browsingByMonth?: Record<string, number>
   browsingByHour?: Record<number, number>
@@ -243,7 +227,6 @@ interface UserData {
   lastVideoDate?: string
   avgVideosPerDay?: number
   
-  // Лайки та улюблене
   favoriteVideosCount?: number
   likedVideosCount?: number
   likesByMonth?: Record<string, number>
@@ -253,23 +236,19 @@ interface UserData {
   favoriteEffectsCount?: number
   favoriteHashtagsCount?: number
   
-  // Пошук
   totalSearches?: number
   topSearchTerms?: Array<{ term: string; count: number }>
   searchesByMonth?: Record<string, number>
   
-  // Коментарі
   totalComments?: number
   commentsByMonth?: Record<string, number>
   recentComments?: Array<{ date?: string; text?: string }>
   avgCommentLength?: number
   
-  // Шеринг
   totalShares?: number
   shareMethods?: Array<{ method: string; count: number }>
   sharesByMonth?: Record<string, number>
   
-  // Входи
   totalLogins?: number
   deviceUsage?: Array<{ device: string; count: number }>
   systemUsage?: Array<{ system: string; count: number }>
@@ -277,11 +256,9 @@ interface UserData {
   carrierUsage?: Array<{ carrier: string; count: number }>
   uniqueIPs?: number
   
-  // Власні відео
   postedVideosCount?: number
   totalLikesOnVideos?: number
   
-  // Повідомлення
   totalChats?: number
   totalDirectMessages?: number
   topChats?: Array<{ name: string; count: number }>
@@ -289,35 +266,27 @@ interface UserData {
   sentMessages?: number
   receivedMessages?: number
   
-  // Live стріми
   watchedLiveStreams?: number
   liveCommentsCount?: number
   
-  // Блокування
   blockedUsersCount?: number
   blockedUsers?: string[]
   
-  // Off TikTok Activity
   offTikTokActivity?: number
   offTikTokEvents?: Array<{ event: string; count: number }>
   
-  // Підписники
   recentFollowers?: string[]
   followersByMonth?: Record<string, number>
   
-  // Версії додатку
   appVersions?: string[]
   resolution?: string
   
-  // Активність по роках
   activityByYear?: Record<number, number>
   
-  // Найактивніший місяць
   mostActiveMonth?: string
   mostActiveMonthCount?: number
 }
 
-// Парсер даних (виконується на клієнті)
 function parseDate(dateString: string | undefined): Date | null {
   if (!dateString) return null
   try {
@@ -442,7 +411,6 @@ function calculateWatchTime(videoCount: number): { hours: number; days: number }
 function analyzeTikTokData(data: any): UserData {
   const result: UserData = {}
 
-  // === ПРОФІЛЬ ===
   const profileInfo = data.Profile?.['Profile Info']?.ProfileMap
   if (profileInfo) {
     result.username = profileInfo.userName
@@ -460,7 +428,6 @@ function analyzeTikTokData(data: any): UserData {
     }
   }
 
-  // === НАЛАШТУВАННЯ ===
   const settings = data['App Settings']?.Settings?.SettingsMap
   if (settings) {
     result.interests = settings.Interests
@@ -475,7 +442,6 @@ function analyzeTikTokData(data: any): UserData {
     result.filterComments = settings['Filter Comments'] === 'Enabled'
   }
 
-  // === ІСТОРІЯ ПЕРЕГЛЯДІВ ===
   const watchHistory = data['Your Activity']?.['Watch History']?.VideoList
   if (watchHistory && Array.isArray(watchHistory)) {
     result.totalVideosWatched = watchHistory.length
@@ -489,7 +455,6 @@ function analyzeTikTokData(data: any): UserData {
     result.estimatedWatchHours = watchTime.hours
     result.estimatedWatchDays = watchTime.days
     
-    // Активність по роках
     const yearStats: Record<number, number> = {}
     watchHistory.forEach((item: any) => {
       const date = parseDate(item.Date)
@@ -500,7 +465,6 @@ function analyzeTikTokData(data: any): UserData {
     })
     result.activityByYear = yearStats
     
-    // Найактивніший місяць
     if (result.browsingByMonth) {
       let maxMonth = ''
       let maxCount = 0
@@ -524,7 +488,6 @@ function analyzeTikTokData(data: any): UserData {
       result.firstVideoDate = sorted[0]?.Date
       result.lastVideoDate = sorted[sorted.length - 1]?.Date
       
-      // Середня кількість відео на день
       const firstDate = parseDate(sorted[0]?.Date)
       const lastDate = parseDate(sorted[sorted.length - 1]?.Date)
       if (firstDate && lastDate) {
@@ -534,45 +497,38 @@ function analyzeTikTokData(data: any): UserData {
     }
   }
 
-  // === УЛЮБЛЕНІ ВІДЕО ===
   const favoriteVideos = data['Your Activity']?.['Favorite Videos']?.FavoriteVideoList
   if (favoriteVideos && Array.isArray(favoriteVideos)) {
     result.favoriteVideosCount = favoriteVideos.length
   }
 
-  // === УЛЮБЛЕНІ ЗВУКИ ===
   const favoriteSounds = data['Your Activity']?.['Favorite Sounds']?.FavoriteSoundList
   if (favoriteSounds && Array.isArray(favoriteSounds)) {
     result.favoriteSoundsCount = favoriteSounds.length
   }
 
-  // === УЛЮБЛЕНІ ЕФЕКТИ ===
   const favoriteEffects = data['Your Activity']?.['Favorite Effects']?.FavoriteEffectsList
   if (favoriteEffects && Array.isArray(favoriteEffects)) {
     result.favoriteEffectsCount = favoriteEffects.length
   }
 
-  // === УЛЮБЛЕНІ ХЕШТЕГИ ===
   const favoriteHashtags = data['Your Activity']?.['Favorite Hashtags']?.FavoriteHashtagList
   if (favoriteHashtags && Array.isArray(favoriteHashtags)) {
     result.favoriteHashtagsCount = favoriteHashtags.length
   }
 
-  // === КОЛЕКЦІЇ ===
   const favoriteCollections = data['Your Activity']?.['Favorite Collection']?.FavoriteCollectionList
   if (favoriteCollections && Array.isArray(favoriteCollections)) {
     result.collectionsCount = favoriteCollections.length
     result.collections = favoriteCollections.slice(0, 20).map((c: any) => c.FavoriteCollection)
   }
 
-  // === ЛАЙКНУТІ ВІДЕО ===
   const likeList = data['Your Activity']?.['Like List']?.ItemFavoriteList
   if (likeList && Array.isArray(likeList)) {
     result.likedVideosCount = likeList.length
     result.likesByMonth = getMonthlyStats(likeList)
   }
 
-  // === ПІДПИСНИКИ ===
   const followers = data['Your Activity']?.Follower?.FansList
   if (followers && Array.isArray(followers)) {
     result.followerCount = followers.length
@@ -580,13 +536,11 @@ function analyzeTikTokData(data: any): UserData {
     result.followersByMonth = getMonthlyStats(followers)
   }
 
-  // === ПІДПИСКИ ===
   const following = data['Your Activity']?.Following?.Following
   if (following && Array.isArray(following)) {
     result.followingCount = following.length
   }
 
-  // === ІСТОРІЯ ПОШУКУ ===
   const searchHistory = data['Your Activity']?.Searches?.SearchList
   if (searchHistory && Array.isArray(searchHistory)) {
     result.totalSearches = searchHistory.length
@@ -594,7 +548,6 @@ function analyzeTikTokData(data: any): UserData {
     result.searchesByMonth = getMonthlyStats(searchHistory)
   }
 
-  // === КОМЕНТАРІ ===
   const comments = data.Comment?.Comments?.CommentsList
   if (comments && Array.isArray(comments)) {
     result.totalComments = comments.length
@@ -604,14 +557,12 @@ function analyzeTikTokData(data: any): UserData {
       text: c.comment?.substring(0, 150)
     }))
     
-    // Середня довжина коментаря
     const totalLength = comments.reduce((sum: number, c: any) => {
       return sum + (c.comment?.length || 0)
     }, 0)
     result.avgCommentLength = Math.round(totalLength / comments.length)
   }
 
-  // === ІСТОРІЯ ШЕРИНГУ ===
   const shareHistory = data['Your Activity']?.['Share History']?.ShareHistoryList
   if (shareHistory && Array.isArray(shareHistory)) {
     result.totalShares = shareHistory.length
@@ -619,7 +570,6 @@ function analyzeTikTokData(data: any): UserData {
     result.sharesByMonth = getMonthlyStats(shareHistory)
   }
 
-  // === ІСТОРІЯ ВХОДІВ ===
   const loginHistory = data['Your Activity']?.['Login History']?.LoginHistoryList
   if (loginHistory && Array.isArray(loginHistory)) {
     result.totalLogins = loginHistory.length
@@ -670,7 +620,6 @@ function analyzeTikTokData(data: any): UserData {
       .slice(0, 3)
   }
 
-  // === ВЛАСНІ ВІДЕО ===
   const userVideos = data.Post?.Posts?.VideoList
   if (userVideos && Array.isArray(userVideos)) {
     result.postedVideosCount = userVideos.length
@@ -683,7 +632,6 @@ function analyzeTikTokData(data: any): UserData {
     }
   }
 
-  // === ДИРЕКТ ПОВІДОМЛЕННЯ ===
   const chatHistory = data['Direct Message']?.['Direct Messages']?.ChatHistory
   if (chatHistory && typeof chatHistory === 'object') {
     const chats = Object.keys(chatHistory)
@@ -719,12 +667,10 @@ function analyzeTikTokData(data: any): UserData {
     result.messagesByMonth = getMonthlyStats(allMessages)
   }
 
-  // === TIKTOK LIVE ===
   const watchLive = data['Tiktok Live']?.['Watch Live History']?.WatchLiveMap
   if (watchLive && typeof watchLive === 'object') {
     result.watchedLiveStreams = Object.keys(watchLive).length
     
-    // Порахувати коментарі в лайвах
     let liveComments = 0
     Object.values(watchLive).forEach((live: any) => {
       if (live.Comments && Array.isArray(live.Comments)) {
@@ -734,19 +680,16 @@ function analyzeTikTokData(data: any): UserData {
     result.liveCommentsCount = liveComments
   }
 
-  // === ЗАБЛОКОВАНІ ===
   const blockList = data['App Settings']?.['Block List']?.BlockList
   if (blockList && Array.isArray(blockList)) {
     result.blockedUsersCount = blockList.length
     result.blockedUsers = blockList.slice(0, 10).map((b: any) => b.UserName)
   }
 
-  // === OFF TIKTOK ACTIVITY ===
   const offTikTok = data['Ads and data']?.['Off TikTok Activity']?.OffTikTokActivityDataList
   if (offTikTok && Array.isArray(offTikTok)) {
     result.offTikTokActivity = offTikTok.length
     
-    // Групуємо по типу події
     const eventCounts: Record<string, number> = {}
     offTikTok.forEach((item: any) => {
       if (item.Event) {
@@ -758,7 +701,6 @@ function analyzeTikTokData(data: any): UserData {
       .sort((a, b) => b.count - a.count)
   }
 
-  // === СТАТУС (ВЕРСІЇ ДОДАТКУ) ===
   const statusList = data['Your Activity']?.Status?.['Status List']
   if (statusList && Array.isArray(statusList)) {
     const versions = new Set<string>()
@@ -843,25 +785,20 @@ export default function Home() {
                     file.name.endsWith('.zip')
       
       if (isZip) {
-        // Розпаковуємо ZIP
         setProgress('Extracting ZIP archive...')
         const zip = new JSZip()
         const zipContent = await zip.loadAsync(file)
         
-        // Шукаємо JSON файл в архіві
         let jsonFile: JSZip.JSZipObject | null = null
         let jsonFileName: string = ''
         
-        // Шукаємо user_data.json або user_data_tiktok.json
         for (const fileName of Object.keys(zipContent.files)) {
           if (fileName.endsWith('.json') && !zipContent.files[fileName].dir) {
-            // Пріоритет для user_data файлів
             if (fileName.includes('user_data')) {
               jsonFile = zipContent.files[fileName]
               jsonFileName = fileName
               break
             }
-            // Якщо ще не знайшли, зберігаємо перший JSON
             if (!jsonFile) {
               jsonFile = zipContent.files[fileName]
               jsonFileName = fileName
@@ -876,20 +813,17 @@ export default function Home() {
         setProgress(`Reading ${jsonFileName}...`)
         text = await jsonFile.async('string')
       } else {
-        // Звичайний JSON файл
         text = await file.text()
       }
       
       setProgress('Parsing JSON...')
       
-      // Виправляємо типові помилки JSON (trailing commas)
       text = text.replace(/,\s*]/g, ']')
       text = text.replace(/,\s*}/g, '}')
       
       const data = JSON.parse(text)
       setProgress('Analyzing data...')
       
-      // Аналізуємо на клієнті
       const result = analyzeTikTokData(data)
       setUserData(result)
       setProgress('')
@@ -1132,8 +1066,8 @@ export default function Home() {
                   />
                 )}
                 <div>
-                  <h2 className="profile-name">Thomas Shelby</h2>
-                  <p className="profile-username">@thomas.shelby</p>
+                  <h2 className="profile-name">{userData.displayName || userData.username}</h2>
+                  {userData.username && <p className="profile-username">@{userData.username}</p>}
                 </div>
               </div>
               <div className="user-info">

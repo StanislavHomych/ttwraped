@@ -1,10 +1,13 @@
 import './globals.css'
-import { Metadata, Viewport } from 'next'
+import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
+import React from 'react'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tiktokwrapped.com'),
+  metadataBase: new URL('https://ttwrapper.com'),
   title: 'TikTok Wrapped - Discover Your TikTok Stats & Personality',
-  description: 'Upload your TikTok data and discover your watching habits, get a fun rank based on your screen time, see your top searches, favorite content, and more. Your personal TikTok year in review!',
+  description:
+    'Upload your TikTok data and discover your watching habits, get a fun rank based on your screen time, see your top searches, favorite content, and more. Your personal TikTok year in review!',
   keywords: [
     'TikTok Wrapped',
     'TikTok Stats',
@@ -37,7 +40,8 @@ export const metadata: Metadata = {
     locale: 'en_US',
     siteName: 'TikTok Wrapped',
     title: 'TikTok Wrapped - Discover Your TikTok Stats',
-    description: 'Find out how much time you spent on TikTok, get your personality rank, and see your complete TikTok story. Fun, private, and free!',
+    description:
+      'Find out how much time you spent on TikTok, get your personality rank, and see your complete TikTok story. Fun, private, and free!',
     images: [
       {
         url: '/og-image.png',
@@ -50,7 +54,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'TikTok Wrapped - Discover Your TikTok Stats',
-    description: 'Find out how much time you spent on TikTok and get your personality rank! 🎰',
+    description:
+      'Find out how much time you spent on TikTok and get your personality rank! 🎰',
     images: ['/og-image.png'],
     creator: '@tiktokwrapped',
   },
@@ -63,7 +68,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   alternates: {
-    canonical: 'https://tiktokwrapped.com',
+    canonical: 'https://ttwrapper.com',
   },
   category: 'technology',
 }
@@ -86,28 +91,70 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Tag Manager */}
+        <Script id="gtm-init" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-53GDGKBZ');
+
+          `}
+        </Script>
+        <Script
+          id="adsense-init"
+          strategy="afterInteractive"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2980943706375055" crossOrigin="anonymous"
+        />
+
+        {/* Fonts preconnect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        {/* PWA / Mobile meta */}
         <meta name="application-name" content="TikTok Wrapped" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <meta name="apple-mobile-web-app-title" content="TikTok Wrapped" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
+
       <body>
+        {/* GTM noscript fallback */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-53GDGKBZ"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+
         {children}
-        
-        {/* Structured Data for SEO */}
-        <script
+
+        {/* Structured Data */}
+        <Script
+          id="structured-data"
           type="application/ld+json"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'WebApplication',
               name: 'TikTok Wrapped',
-              description: 'Discover your TikTok watching habits, get a fun personality rank, and see your complete TikTok story.',
-              url: 'https://tiktokwrapped.com',
+              description:
+                'Discover your TikTok watching habits, get a fun personality rank, and see your complete TikTok story.',
+              url: 'https://ttwrapper.com',
               applicationCategory: 'UtilitiesApplication',
               operatingSystem: 'Web Browser',
               offers: {

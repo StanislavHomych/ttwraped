@@ -1942,6 +1942,7 @@ input[type="file"] {
     padding: 5rem 2rem 2rem;
     transition: right 0.3s ease;
     z-index: 1000;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
   }
 
   .header-nav.open {
@@ -1950,7 +1951,7 @@ input[type="file"] {
 
   .header-nav-list {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
     align-items: flex-start;
     width: 100%;
   }
@@ -1959,16 +1960,20 @@ input[type="file"] {
     font-size: 1.1rem;
     width: 100%;
     padding: 0.75rem 0;
+    display: block;
   }
 
   .header-link::after {
-    height: 1px;
+    height: 2px;
+    bottom: 0.5rem;
   }
 
   .header-link[href*="#upload-section"] {
-    padding: 0.75rem 1.2rem;
+    padding: 0.9rem 1.5rem;
     text-align: center;
     margin-top: 0.5rem;
+    width: 100%;
+    border-radius: 50px;
   }
 }
 

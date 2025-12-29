@@ -910,59 +910,10 @@ export default function Home() {
         </div>
         
         <p className="hero-description">
-          Upload your TikTok data export and discover how much time you&apos;ve spent scrolling, 
-          your most active hours, top searches, and get a rank based on your screen time.
+          TikTok Wrapped is an independent online tool that helps you understand your personal TikTok activity using your official TikTok data export.
+          When you request your data from TikTok, it is delivered as a ZIP or JSON file containing raw activity information. TikTok Wrapped analyzes this file and converts it into clear summaries and visual insights, such as usage patterns, activity timelines, and general engagement statistics.
+          The service works only with data you choose to upload and is intended for informational and personal analysis purposes.
         </p>
-      </div>
-
-      <div className="card">
-        <div
-          className={`upload-area ${isDragging ? 'dragover' : ''}`}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onClick={() => document.getElementById('file-input')?.click()}
-        >
-          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📦</div>
-          <p style={{ fontSize: '1.2rem', marginBottom: '1rem', color: '#fff' }}>
-            {file ? `✅ ${file.name}` : 'Drop your ZIP or JSON file here'}
-          </p>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' }}>
-            TikTok → Settings → Privacy → Download Data
-          </p>
-          <input
-            id="file-input"
-            type="file"
-            accept=".json,.zip"
-            onChange={handleFileChange}
-          />
-          <button
-            className="upload-button"
-            onClick={(e) => {
-              e.stopPropagation()
-              handleAnalyze()
-            }}
-            disabled={!file || loading}
-          >
-            {loading ? '⏳ Analyzing...' : '🔍 Analyze'}
-          </button>
-        </div>
-
-        {error && <div className="error">❌ {error}</div>}
-
-        {loading && (
-          <div className="loading">
-            <div className="spinner"></div>
-            {progress || 'Processing data...'}
-          </div>
-        )}
-        
-        {/* How to get data link */}
-        {!userData && !loading && (
-          <a href="#how-to-get-data" className="how-to-link">
-            Don&apos;t have your data? Learn how to download it ↓
-          </a>
-        )}
       </div>
 
       {/* Instructions Section */}
@@ -1041,6 +992,65 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      <div className="card">
+        <div
+          className={`upload-area ${isDragging ? 'dragover' : ''}`}
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onClick={() => document.getElementById('file-input')?.click()}
+        >
+          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📦</div>
+          <p style={{ fontSize: '1.2rem', marginBottom: '1rem', color: '#fff' }}>
+            {file ? `✅ ${file.name}` : 'Drop your ZIP or JSON file here'}
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' }}>
+            TikTok → Settings → Privacy → Download Data
+          </p>
+          <input
+            id="file-input"
+            type="file"
+            accept=".json,.zip"
+            onChange={handleFileChange}
+          />
+          <button
+            className="upload-button"
+            onClick={(e) => {
+              e.stopPropagation()
+              handleAnalyze()
+            }}
+            disabled={!file || loading}
+          >
+            {loading ? '⏳ Analyzing...' : '🔍 Analyze'}
+          </button>
+          <p style={{ 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: '0.9rem', 
+            marginTop: '1.5rem',
+            textAlign: 'center',
+            padding: '0 1rem'
+          }}>
+            Your file is processed only to generate your results. We do not sell, share, or use uploaded data for advertising.
+          </p>
+        </div>
+
+        {error && <div className="error">❌ {error}</div>}
+
+        {loading && (
+          <div className="loading">
+            <div className="spinner"></div>
+            {progress || 'Processing data...'}
+          </div>
+        )}
+        
+        {/* How to get data link */}
+        {!userData && !loading && (
+          <a href="#how-to-get-data" className="how-to-link">
+            Don&apos;t have your data? Learn how to download it ↓
+          </a>
+        )}
+      </div>
 
       {/* Demo Video Section */}
       {!userData && (

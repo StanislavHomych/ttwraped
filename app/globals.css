@@ -73,6 +73,7 @@ body::after {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
+  padding-top: 3rem;
   padding-bottom: 6rem;
   position: relative;
 }
@@ -1761,6 +1762,213 @@ input[type="file"] {
   30% { 
     background: rgba(37, 244, 238, 0.2);
     box-shadow: 0 0 30px rgba(37, 244, 238, 0.3);
+  }
+}
+
+/* Header Styles */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(3, 0, 20, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(3, 0, 20, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+.header-logo .cyan {
+  color: #25f4ee;
+  text-shadow: 0 0 20px rgba(37, 244, 238, 0.4);
+}
+
+.header-logo .pink {
+  color: #fe2c55;
+  text-shadow: 0 0 20px rgba(254, 44, 85, 0.4);
+}
+
+.header-logo .white {
+  color: #fff;
+  opacity: 0.9;
+  margin-left: 0.5rem;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  align-items: center;
+}
+
+.header-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.header-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #25f4ee, #fe2c55);
+  transition: width 0.3s ease;
+}
+
+.header-link:hover {
+  color: #fff;
+}
+
+.header-link:hover::after {
+  width: 100%;
+}
+
+.header-link.active {
+  color: #fff;
+}
+
+.header-link.active::after {
+  width: 100%;
+}
+
+.header-link[href*="#upload-section"] {
+  background: linear-gradient(135deg, #fe2c55 0%, #ec4899 100%);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  color: #fff !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.header-link[href*="#upload-section"]::after {
+  display: none;
+}
+
+.header-link[href*="#upload-section"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(254, 44, 85, 0.4);
+}
+
+.header-link[href*="#upload-section"].active {
+  box-shadow: 0 0 20px rgba(254, 44, 85, 0.6);
+}
+
+.header-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.header-menu-toggle span {
+  width: 25px;
+  height: 2px;
+  background: #fff;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.header-menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.header-menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.header-menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media (max-width: 768px) {
+  .header-menu-toggle {
+    display: flex;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(3, 0, 20, 0.98);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5rem 2rem 2rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .header-nav.open {
+    right: 0;
+  }
+
+  .header-nav-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .header-link {
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 0.75rem 0;
+  }
+
+  .header-link::after {
+    height: 1px;
+  }
+
+  .header-link[href*="#upload-section"] {
+    padding: 0.75rem 1.2rem;
+    text-align: center;
+    margin-top: 0.5rem;
   }
 }
 

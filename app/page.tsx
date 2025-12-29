@@ -993,7 +993,7 @@ export default function Home() {
         </div>
       )}
 
-      <div className="card">
+      <div className="card" id="upload-section">
         <div
           className={`upload-area ${isDragging ? 'dragover' : ''}`}
           onDrop={handleDrop}
@@ -1085,7 +1085,7 @@ export default function Home() {
           </div>
           
           <p className="demo-cta">
-            Ready to discover your stats? <a href="#top" className="demo-link">Upload your data above! ↑</a>
+            Ready to discover your stats? <a href="#upload-section" className="demo-link">Upload your data above! ↑</a>
           </p>
         </div>
       )}

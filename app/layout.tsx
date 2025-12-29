@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import React from 'react'
+import Header from './components/Header'
 import Footer from './components/Footer'
 
 export const metadata: Metadata = {
@@ -138,6 +139,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+
+        <Header />
 
         {children}
 

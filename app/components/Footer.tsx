@@ -26,7 +26,6 @@ export default function Footer() {
                 <li><a href="/" className="footer-link">Home</a></li>
                 <li><a href="/#how-to-get-data" className="footer-link">How It Works</a></li>
                 <li><a href="/about" className="footer-link">About</a></li>
-                <li><a href="/features" className="footer-link">Features</a></li>
               </ul>
             </div>
 
@@ -35,7 +34,6 @@ export default function Footer() {
               <ul className="footer-nav-list">
                 <li><a href="/privacy" className="footer-link">Privacy Policy</a></li>
                 <li><a href="/terms" className="footer-link">Terms of Service</a></li>
-                <li><a href="/cookie-policy" className="footer-link">Cookie Policy</a></li>
                 <li><a href="/contact" className="footer-link">Contact</a></li>
               </ul>
             </div>
@@ -43,9 +41,6 @@ export default function Footer() {
             <div className="footer-nav-column">
               <h4 className="footer-nav-title">Resources</h4>
               <ul className="footer-nav-list">
-                <li><a href="/sitemap.xml" className="footer-link">Sitemap</a></li>
-                <li><a href="/robots.txt" className="footer-link">Robots.txt</a></li>
-                <li><a href="/about#faq" className="footer-link">FAQ</a></li>
                 <li><a href="/blog" className="footer-link">Blog</a></li>
               </ul>
             </div>
@@ -63,8 +58,6 @@ export default function Footer() {
             </p>
           </div>
           <div className="footer-meta">
-            <a href="/sitemap.xml" className="footer-meta-link">Sitemap</a>
-            <span className="footer-separator">•</span>
             <a href="/privacy" className="footer-meta-link">Privacy</a>
             <span className="footer-separator">•</span>
             <a href="/terms" className="footer-meta-link">Terms</a>

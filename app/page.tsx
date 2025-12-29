@@ -3,6 +3,13 @@
 import { useState, useEffect, useRef } from 'react'
 import JSZip from 'jszip'
 
+// Extend Window interface for dataLayer
+declare global {
+  interface Window {
+    dataLayer?: any[]
+  }
+}
+
 function SlotNumber({ value, delay = 0 }: { value: number; delay?: number }) {
   const [isSpinning, setIsSpinning] = useState(true)
   const [displayValue, setDisplayValue] = useState('0')
@@ -827,6 +834,28 @@ export default function Home() {
       const result = analyzeTikTokData(data)
       setUserData(result)
       setProgress('')
+      
+      // Dispatch wrapped_requested event to dataLayer
+      if (typeof window !== 'undefined') {
+        // Ensure dataLayer exists
+        window.dataLayer = window.dataLayer || []
+        
+        // Push the custom event
+        window.dataLayer.push({
+          event: 'wrapped_requested',
+          timestamp: new Date().toISOString(),
+          fileType: isZip ? 'zip' : 'json',
+          fileName: file.name
+        })
+        
+        // Log for verification
+        console.log('✅ wrapped_requested event sent to dataLayer:', {
+          event: 'wrapped_requested',
+          timestamp: new Date().toISOString(),
+          fileType: isZip ? 'zip' : 'json',
+          fileName: file.name
+        })
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred while processing the file')
     } finally {

@@ -71,7 +71,7 @@ export default function TikTokWrappedVsAnalyticsPage() {
           <section className="blog-post-section">
             <h2 className="blog-post-section-title">What Is TikTok Wrapped?</h2>
             <p className="blog-post-text">
-              TikTok Wrapped is an independent data analysis tool that works with a user&apos;s official TikTok data export.
+              <Link href="/">TikTok Wrapped</Link> is an independent data analysis tool that works with a user&apos;s official TikTok data export.
             </p>
             <p className="blog-post-text">
               Instead of focusing on content performance, TikTok Wrapped analyzes:

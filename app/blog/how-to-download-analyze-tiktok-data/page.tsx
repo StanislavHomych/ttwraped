@@ -148,7 +148,7 @@ export default function BlogPostPage() {
           <section className="blog-post-section">
             <h2 className="blog-post-section-title">How to Analyze TikTok Data Easily</h2>
             <p className="blog-post-text">
-              Instead of manually reviewing raw files, users can upload their official TikTok data export to tools like TikTok Wrapped, which automatically convert the data into readable summaries and visual insights.
+              Instead of manually reviewing raw files, users can upload their official TikTok data export to tools like <Link href="/">TikTok Wrapped</Link>, which automatically convert the data into readable summaries and visual insights.
             </p>
             <p className="blog-post-text">
               These tools do not create or modify data — they simply organize information already provided by TikTok and present it in an accessible format.

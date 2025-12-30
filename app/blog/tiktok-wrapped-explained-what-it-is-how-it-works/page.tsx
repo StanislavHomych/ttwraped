@@ -48,7 +48,7 @@ export default function TikTokWrappedExplainedPage() {
           <section className="blog-post-section">
             <h2 className="blog-post-section-title">What Is TikTok Wrapped?</h2>
             <p className="blog-post-text">
-              TikTok Wrapped is an independent data analysis concept that turns a user&apos;s TikTok data export into clear, readable insights.
+              <Link href="/">TikTok Wrapped</Link> is an independent data analysis concept that turns a user&apos;s TikTok data export into clear, readable insights.
             </p>
             <p className="blog-post-text">
               TikTok allows users to request a full copy of their personal activity data. This data is delivered as a ZIP or JSON file and contains raw records of how the app has been used over time.

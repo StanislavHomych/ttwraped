@@ -170,7 +170,7 @@ export default function TikTokUsageDigitalHabitsPage() {
           <section className="blog-post-section">
             <h2 className="blog-post-section-title">Turning Raw Data Into Insights</h2>
             <p className="blog-post-text">
-              TikTok data exports are technical and not designed for easy interpretation. Tools like TikTok Wrapped organize raw records into:
+              TikTok data exports are technical and not designed for easy interpretation. Tools like <Link href="/">TikTok Wrapped</Link> organize raw records into:
             </p>
             <ul className="blog-post-list">
               <li>timelines,</li>

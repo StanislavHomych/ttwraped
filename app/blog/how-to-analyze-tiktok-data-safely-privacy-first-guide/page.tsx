@@ -164,7 +164,7 @@ export default function AnalyzeTikTokDataSafelyPage() {
             <div className="blog-post-step">
               <h3 className="blog-post-step-title">Automated Analysis Tools</h3>
               <p className="blog-post-text">
-                Automated tools such as TikTok Wrapped summarize data by:
+                Automated tools such as <Link href="/">TikTok Wrapped</Link> summarize data by:
               </p>
               <ul className="blog-post-list">
                 <li>grouping related records,</li>
